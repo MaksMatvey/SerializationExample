@@ -8,17 +8,41 @@ namespace TestTask
 {
     public class NamefromTextBox
     {
+        private string namedata;
+        private string yearsdata;
+        private string countrydata;
         public string NameData
         {
-            get; set;
+            get
+            {
+                return namedata;
+            }
+             set
+            {
+                namedata = value;
+            }
         }
         public string YearsData
         {
-            get; set;
+            get
+            {
+                return yearsdata;
+            }
+            set
+            {
+                yearsdata = value;
+            }
         }
         public string CountryData
         {
-            get; set;
+            get
+            {
+                return countrydata;
+            }
+            set
+            {
+                countrydata = value;
+            }
         }
     }
 }

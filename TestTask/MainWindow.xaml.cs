@@ -4,27 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-//using System.Windows.Controls;
-//using System.Windows.Data;
-//using System.Windows.Documents;
 using System.Windows.Input;
-//using System.Windows.Media;
-//using System.Windows.Media.Imaging;
-//using System.Windows.Navigation;
-//using System.Windows.Shapes;
-//using System.Xml;
 using System.Web.Script.Serialization;
 using System.IO;
-//using System.Xml.Linq;
 using System.Xml.Serialization;
 using System.Runtime.Serialization.Json;
-//using System.Runtime.Serialization;
-using Newtonsoft.Json;
-
-
-
-//using System.Runtime.Serialization.Json;
-//using System.IO;
 
 namespace TestTask
 {
@@ -156,9 +140,7 @@ namespace TestTask
             }
 
         }
-
-      
-              
+        
         private void FindBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -168,8 +150,15 @@ namespace TestTask
                     string file2 = File.ReadAllText("StaffData.txt");
                     StringReader stringReader = new StringReader(file2);
                     List<NamefromTextBox> returnObject = (List<NamefromTextBox>)formatter.Deserialize(stringReader);
-                    if (IsNum(FindBox.Text) == true) { ShowObj1(returnObject); }
-                        else ShowObj(returnObject);
+
+                    if (IsNum(FindBox.Text) == true)
+                    {
+                        ShowObj1(returnObject);
+                    }
+                    else
+                    {
+                        ShowObj(returnObject);
+                    }
 
                     //------- Second the way to show XML--------
 
@@ -209,8 +198,15 @@ namespace TestTask
                 {
                     string file = File.ReadAllText("StaffData.txt");
                     List<NamefromTextBox> returnObject1 = new JavaScriptSerializer().Deserialize<List<NamefromTextBox>>(file);
-                    if (IsNum(FindBox.Text) == true) { ShowObj1(returnObject1); }
-                    else ShowObj(returnObject1);
+
+                    if (IsNum(FindBox.Text) == true)
+                    {
+                        ShowObj1(returnObject1);
+                    }
+                    else
+                    {
+                        ShowObj(returnObject1);
+                    }
                 }
                 if (FindBox.Text == "" && NameBox.Text == "") { MessageBox.Show("String of find is empty"); }
                 if (FindBox.Text != "" && NameBox.Text == "") { MessageBox.Show("Nothing find"); }
